@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>TuneHub DisplaySongs</title>
+    <link rel="stylesheet" th:href="@{displaySongs.css}" />
+</head>
+
+<body>
+	
+    <h1>Welcome to TuneHub</h1>
+    <p>Discover the magic of music with our handpicked collection!</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Play</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="song: ${songs}">
+                <td th:text="${song.name}"></td>
+                <td th:text="${song.artist}"></td>
+                <td th:text="${song.genre}"></td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source th:src="${song.link}">
+                    </audio>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener('play', function (e) {
+            var audioPlayers = document.getElementsByClassName('audio-player');
+            for (var i = 0; i < audioPlayers.length; i++) {
+                if (audioPlayers[i] != e.target) {
+                    audioPlayers[i].pause();
+                }
+            }
+        }, true);
+    </script>
+</body>
+</html>

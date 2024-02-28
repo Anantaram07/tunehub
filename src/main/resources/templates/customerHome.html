@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Home</title>
+<link rel="stylesheet" th:href=@{customerHome.css}  />
+</head>
+<body>
+	<header>
+    <div>
+      <a href="/" class="logo-link"><img src="logo.png" alt="Logo" height="52"></a>
+    </div>
+     <div class="navbar">
+      <a href="customerHome" class="navbar-link">Home</a>
+    </div>
+    <div class="navbar">
+      <a href="overview" class="navbar-link">Overview</a>
+    </div>
+    
+    <div class="navbar">
+      <a href="contact" class="navbar-link">Contact</a>
+    </div>
+    <div class="tuneTitle">
+      Customer Home
+    </div>
+  </header>
+   	<div th:unless="${isPremium}" class="non-premium">
+   	<h1>Discover Your Music Paradise</h1>
+   	<p>Welcome to TuneHub! Immerse yourself in a world of musical delight as you explore our extensive collection of tunes.</p>
+   	<p> Unleash the full spectrum of your auditory senses by upgrading to our premium experience.</p>
+    <a href="pay">GET PREMIUM</a>
+    <a href="playSongs">PLAY SONGS</a>
+    <a href="logout">LOGOUT</a>
+    <br>
+    </div>
+    <div th:if="${isPremium}" class="premium">
+    <h1>Welcome to TuneHub</h1>
+    <p>Discover Your Music Paradise with our handpicked collection!</p>
+    <a href="playSongs">Play Songs</a>
+    <a href="viewPlaylists">View Melodious Playlists</a>
+    <a href="logout">LOGOUT</a>
+    </div>
+</body>
+</html>

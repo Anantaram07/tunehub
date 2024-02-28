@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" th:href=@{contact.css}  />
+</head>
+<body>
+  <header>
+    <div>
+      <a href="/" class="logo-link"><img src="logo.png" alt="Logo" height="52"></a>
+    </div>
+     <div class="navbar">
+      <a href="/" class="navbar-link">Home</a>
+    </div>
+    <div class="navbar">
+      <a href="overview" class="navbar-link">Overview</a>
+    </div>
+    
+    <div class="navbar">
+      <a href="contact" class="navbar-link">Contact</a>
+    </div>
+    <div class="tuneTitle">
+      Tune Hub says Hi!
+    </div>
+  </header>
+
+  <h1>Contact Us</h1>
+
+  <p>Any Queries..Give Feedback!</p>
+
+  <form id="contactForm" name="submit-to-google-sheet">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Your Feedback:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+  <span id="msg"></span>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxNgf8XDlG0VnFiT0PQGurBoJ7HI3aW_wqqnyNq1F4kXiRR-DB3223aYJ1hpEbfsKDW/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg");
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Thank you for your feedback!"
+          setTimeout(function () {
+            msg.innerHTML = ""
+          }, 5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>

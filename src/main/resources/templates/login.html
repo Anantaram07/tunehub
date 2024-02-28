@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link rel="stylesheet" th:href=@{login.css} />
+</head>
+<body>
+	
+	<form action="validate" method="post">
+		<h1>Login to Listen</h1>
+	    <label for="email">Email : </label>
+	    <input type="email" id="email" name="email" required="required"/>
+	    <br>
+	    <label for="password">Password : </label>
+	    <input type="password" id="password" name="password" required="required"/>
+	    <br>
+	    <input type="submit" value="Login"/>
+	     <p class="passReg">
+            <a href="registration">Not Registered Yet?</a>
+            <span> | </span>
+            <a th:href="@{/forgotPassword}">Forgot Password?</a>
+        </p>
+	</form>
+	  <script th:if="${loginError}">
+        alert("Invalid email or password. Please check your credentials and try again.");
+    </script>
+</body>
+</html>

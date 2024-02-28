@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+<link rel="stylesheet" th:href=@{index.css}  />
+
+</head>
+<body>
+      <header>
+        <div>
+            <a href="#" class="logo-link" ><img src="logo.png" alt="Logo" height="52"></a>
+        </div>
+        <div class="navbar">
+            <a href="overview" class="navbar-link">Overview</a>
+        </div>
+        
+        <div class="navbar">
+            <a href="contact" class="navbar-link">Contact</a>
+        </div>
+        <div class="tuneTitle">
+            Tune Hub says Hi!
+        </div>
+    </header>
+
+    <h1>Welcome to Tune Hub</h1>
+
+    <div class="pickup-lines">
+        <p></p>
+        <p></p>
+    </div>
+
+    <a href="login" class="button-effect">LOGIN</a>
+    <p class="line">Already Registered? Login!</p>
+    <a href="registration" class="button-effect">GET STARTED</a>
+    <p class="line">New user? Register!</p>
+    <footer>
+    <p> 2024 Tune Hub. All rights reserved. | Designed by Anantaram</p>
+	</footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        animateText('Where words fail, music speaks. Tune Hub speaks your language!', document.querySelector('.pickup-lines p:first-child'));
+        setTimeout(function () {
+            animateText('Unlock the rhythm of your soul with Tune Hub!', document.querySelector('.pickup-lines p:last-child'));
+        }, 2000); 
+    });
+
+    function animateText(text, element) {
+        let index = 0;
+        const interval = 50; // Adjust the typing speed
+
+        function type() {
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, interval);
+            }
+        }
+
+        if (!element.classList.contains('animated')) {
+            element.classList.add('animated');
+            type();
+        }
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+@charset "ISO-8859-1";
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Arial', sans-serif;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:
+		url('https://cdn.pixabay.com/photo/2016/08/31/17/02/blue-1634110_640.png'),
+		no-repeat, fixed;
+	background-size: cover;
+	background-attachment: fixed;
+	margin-top: 10px;
+	overflow: hidden;
+	margin-bottom: 45px;
+}
+
+form {
+	background-color: rgba(255, 255, 255, 0.0);
+	border: #fff solid 1px;
+	padding: 40px;
+	padding-top: 8px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	width: 350px;
+}
+
+label {
+	margin-bottom: 8px;
+	color: #fff;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+}
+
+input {
+	width: calc(100% - 20px);
+	padding: 12px;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	width: calc(100% - 0px);
+	padding: 15px;
+	border: none;
+	border-radius: 5px;
+	background-color: rgb(0, 0, 160);
+	
+	color: white;
+	font-size: 18px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #012d7e;
+	color: rgb(251, 247, 253);
+	font-size: 19px;
+	font-weight: bold;
+	border: #fff solid 1px;
+}
+
+h1 {
+	color: #ffffff;
+	text-align: center;
+}

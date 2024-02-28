@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+body {
+    background:
+        url('/index.jpg')
+        no-repeat, fixed;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden; 
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.0), #000, #362401, rgba(0, 0, 0, 0.3));
+    padding: 20px;
+    font-size: 36px;
+}
+
+h2 {
+    color: #faec50;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.logo-link {
+    text-decoration: none;
+    background: none;
+    color: inherit;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.navbar-link {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #ff8040;
+}
+
+.tuneTitle {
+    text-align: center;
+    margin-left: 130px;
+}
+
+.overview-section {
+    margin: 20px;
+    font-weight: 500;
+    font-style: italic;
+    color: #fff;
+    font-size: 18px;
+}

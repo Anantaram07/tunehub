@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>TuneHub Display Playlists</title>
+    <link rel="stylesheet" th:href="@{displayPlaylists.css}" />
+    <style type="text/css">
+        audio {
+            height: 60px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+	
+    <h1>TuneHub - Melodious Playlists</h1>
+    <p class="pickup-lines">"Life is a song, love is the melody."</p>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Songs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="plist:${allPlaylists}">
+                <td th:text="${plist.name}"></td>
+                <td>
+                    <ul>
+                        <li th:each="song: ${plist.songs}">
+                            <span th:text="${song.name}"></span>
+                            <audio controls class="audio-player">
+                                <source th:src="${song.link}">
+                            </audio>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="pickup-lines">"In a world full of noise, find your melody."</p>
+
+    <script>
+        document.addEventListener('play', function (e) {
+            var audioPlayers = document.getElementsByClassName('audio-player');
+            for (var i = 0; i < audioPlayers.length; i++) {
+                if (audioPlayers[i] != e.target) {
+                    audioPlayers[i].pause();
+                }
+            }
+        }, true);
+    </script>
+</body>
+</html>
